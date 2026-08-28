@@ -54,9 +54,11 @@ echo "模型目录: $MODEL_DIR"
 ls "$MODEL_DIR" | head -n 5
 
 # 执行推理
+PYTHON_BIN="$(command -v python3 || command -v python)"
+echo "Python: $($PYTHON_BIN --version 2>&1)"
 echo "===== 开始推理 ====="
 DATA_DIR="$DATA_DIR" OUTPUT_DIR="$OUTPUT_DIR" \
-    python "$CODE_DIR/inference_cascade_lstm_v90-4-5-tau14-debug.py"
+    "$PYTHON_BIN" "$CODE_DIR/inference_cascade_lstm_v90-4-5-tau14-debug.py"
 
 # 开发环境下同时复制结果到平台可下载目录
 if [ -d "/home/spaceapp/project/data" ] && [ "$OUTPUT_DIR" != "/home/spaceapp/project/data" ]; then
