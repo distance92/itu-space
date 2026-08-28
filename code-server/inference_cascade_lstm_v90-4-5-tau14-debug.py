@@ -405,7 +405,7 @@ def main():
             pp = max(0, min(NUM_PHASES-1, pp))
             key = make_key(s['lon_raw'], s['lat_raw'], s['obs_date'])
             res[key] = [CROP_NAMES[crop_pred], PHASE_NAMES[pp]]
-            ph_cache[key] = mean_probs.cpu().numpy().astype(np.float64)
+            ph_cache[key] = np.asarray(mean_probs.detach().cpu().tolist(), dtype=np.float64)
 
     fc=0
     for p in nd:
