@@ -5,9 +5,12 @@ FROM 10.107.104.55:8082/base/base:base
 
 WORKDIR /workspace
 
-# 安装 Python 依赖（平台基础镜像已含 Python3/pip）
+# 离线安装 Python 依赖：wheels/ 目录由开发环境 pip download 预先下载好
+# （平台容器内无法访问外网源，必须用 --no-index 离线安装）
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+COPY wheels/ /tmp/wheels/
+RUN pip3 install --no-cache-dir --no-index --find-links=/tmp/wheels -r requirements.txt \
+    && rm -rf /tmp/wheels
 
 # 复制推理代码、启动脚本与模型
 COPY code-server/ /workspace/code-server/
