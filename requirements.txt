@@ -1,5 +1,17 @@
-# numpy 使用平台基础镜像自带的 2.2.6（torch 兼容性已在代码中绕过，勿在此声明覆盖）
-# lightgbm 本推理脚本未使用，不安装
+# 差分包合并机制不会带出基础镜像里的已有包，
+# 全部依赖(含依赖的依赖)在此显式声明，由 --no-index --find-links 离线安装
 pandas>=2.3.3
 rasterio>=1.4.4
 tqdm>=4.66
+numpy>=1.22
+affine>=3.0
+attrs>=25.0
+certifi>=2024.0
+click>=4.0,!=8.2.*
+click-plugins>=1.1
+cligj>=0.5
+pyparsing>=2.4.7
+python-dateutil>=2.8.2
+pytz>=2020.1
+tzdata>=2022.7
+six>=1.5

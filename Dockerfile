@@ -10,22 +10,8 @@ WORKDIR /workspace
 # 构建前需在开发环境执行: pip3 download -r requirements.txt -d wheels/
 COPY requirements.txt .
 COPY wheels/ /tmp/wheels/
-RUN pip3 install --no-cache-dir --no-index --force-reinstall --no-deps \
-    /tmp/wheels/pandas-*.whl \
-    /tmp/wheels/rasterio-*.whl \
-    /tmp/wheels/tqdm-*.whl \
-    /tmp/wheels/numpy-*.whl \
-    /tmp/wheels/affine-*.whl \
-    /tmp/wheels/attrs-*.whl \
-    /tmp/wheels/certifi-*.whl \
-    /tmp/wheels/click-*.whl \
-    /tmp/wheels/click_plugins-*.whl \
-    /tmp/wheels/cligj-*.whl \
-    /tmp/wheels/pyparsing-*.whl \
-    /tmp/wheels/python_dateutil-*.whl \
-    /tmp/wheels/pytz-*.whl \
-    /tmp/wheels/tzdata-*.whl \
-    /tmp/wheels/six-*.whl \
+RUN pip3 install --no-cache-dir --no-index --find-links=/tmp/wheels \
+    --force-reinstall --no-deps -r requirements.txt \
     && rm -rf /tmp/wheels
 
 # 复制推理代码、启动脚本与模型
