@@ -33,14 +33,30 @@ fi
 echo "数据目录: $DATA_DIR"
 ls -la "$DATA_DIR" | head -n 20
 
-# 检查模型
-echo "===== 检查模型文件 ====="
-ls -la /workspace/models/
+# 代码目录：镜像内是 /workspace/code-server，开发环境是本包所在目录
+if [ -d "/workspace/code-server" ]; then
+    CODE_DIR="/workspace/code-server"
+else
+    SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+    CODE_DIR="$SCRIPT_DIR/code-server"
+fi
+
+# 检查模型：优先 /workspace/models，其次随包的 models/
+if [ -d "/workspace/models" ]; then
+    MODEL_DIR="/workspace/models"
+else
+    MODEL_DIR="$SCRIPT_DIR/models"
+fi
+export MODEL_DIR
+
+echo "代码目录: $CODE_DIR"
+echo "模型目录: $MODEL_DIR"
+ls "$MODEL_DIR" | head -n 5
 
 # 执行推理
 echo "===== 开始推理 ====="
 DATA_DIR="$DATA_DIR" OUTPUT_DIR="$OUTPUT_DIR" \
-    python /workspace/code-server/inference_cascade_lstm_v90-4-5-tau14-debug.py
+    python "$CODE_DIR/inference_cascade_lstm_v90-4-5-tau14-debug.py"
 
 # 开发环境下同时复制结果到平台可下载目录
 if [ -d "/home/spaceapp/project/data" ] && [ "$OUTPUT_DIR" != "/home/spaceapp/project/data" ]; then

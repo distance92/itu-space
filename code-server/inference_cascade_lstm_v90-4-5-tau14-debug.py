@@ -30,7 +30,7 @@ INPUT_DIR = Path(os.environ.get("DATA_DIR", "/rs"))
 REGION_TEST_DIR = INPUT_DIR
 OUTPUT_DIR = Path(os.environ.get("OUTPUT_DIR", "/output"))
 OUTPUT_JSON = OUTPUT_DIR / "result.json"
-MODEL_DIR = Path("/workspace/models")
+MODEL_DIR = Path(os.environ.get("MODEL_DIR", "/workspace/models"))
 
 MODEL_PATHS_V11 = [MODEL_DIR / f"best_multitask_lstm_fold-v90-2-11-{i}.pth" for i in range(1,6)]
 MODEL_PATHS_V45T14 = [MODEL_DIR / f"best_pheno_lstm_fold-v90-4-5-tau14-{i}.pth" for i in range(1,6)]
@@ -103,50 +103,138 @@ class PhenoLSTM(nn.Module):
         out,_ = pad_packed_sequence(self.lstm(packed)[0],batch_first=True)
         return self.ph(self.dp(out))
 
+COMPETITION_PATTERN = re.compile(
+    r"^(region\d+)_(\d{4}-\d{2}-\d{2})-\d{2}-\d{2}_.*_(L1C|L2A)_([A-Z0-9]+)_\(Raw\)\.(tiff|tif)$", re.IGNORECASE)
+
+COMPETITION_PATTERN = re.compile(
+    r"^(region\d+)_(\d{4}-\d{2}-\d{2})-\d{2}-\d{2}_.*_(L1C|L2A)_([A-Z0-9]+)_\(Raw\)\.(tiff|tif)$", re.IGNORECASE)
+
+COMPETITION_PATTERN = re.compile(
+    r"^(region\d+)_(\d{4}-\d{2}-\d{2})-\d{2}-\d{2}_.*_(L1C|L2A)_([A-Z0-9]+)_\(Raw\)\.(tiff|tif)$", re.IGNORECASE)
+
+COMPETITION_PATTERN = re.compile(
+    r"^(region\d+)_(\d{4}-\d{2}-\d{2})-\d{2}-\d{2}_.*_(L1C|L2A)_([A-Z0-9]+)_\(Raw\)\.(tiff|tif)$", re.IGNORECASE)
+
+COMPETITION_PATTERN = re.compile(
+    r"^(region\d+)_(\d{4}-\d{2}-\d{2})-\d{2}-\d{2}_.*_(L1C|L2A)_([A-Z0-9]+)_\(Raw\)\.(tiff|tif)$", re.IGNORECASE)
+
+COMPETITION_PATTERN = re.compile(
+    r"^(region\d+)_(\d{4}-\d{2}-\d{2})-\d{2}-\d{2}_.*_(L1C|L2A)_([A-Z0-9]+)_\(Raw\)\.(tiff|tif)$", re.IGNORECASE)
+
+COMPETITION_PATTERN = re.compile(
+    r"^(region\d+)_(\d{4}-\d{2}-\d{2})-\d{2}-\d{2}_.*_(L1C|L2A)_([A-Z0-9]+)_\(Raw\)\.(tiff|tif)$", re.IGNORECASE)
+
+COMPETITION_PATTERN = re.compile(
+    r"^(region\d+)_(\d{4}-\d{2}-\d{2})-\d{2}-\d{2}_.*_(L1C|L2A)_([A-Z0-9]+)_\(Raw\)\.(tiff|tif)$", re.IGNORECASE)
+
+COMPETITION_PATTERN = re.compile(
+    r"^(region\d+)_(\d{4}-\d{2}-\d{2})-\d{2}-\d{2}_.*_(L1C|L2A)_([A-Z0-9]+)_\(Raw\)\.(tiff|tif)$", re.IGNORECASE)
+
+COMPETITION_PATTERN = re.compile(
+    r"^(region\d+)_(\d{4}-\d{2}-\d{2})-\d{2}-\d{2}_.*_(L1C|L2A)_([A-Z0-9]+)_\(Raw\)\.(tiff|tif)$", re.IGNORECASE)
+
+COMPETITION_PATTERN = re.compile(
+    r"^(region\d+)_(\d{4}-\d{2}-\d{2})-\d{2}-\d{2}_.*_(L1C|L2A)_([A-Z0-9]+)_\(Raw\)\.(tiff|tif)$", re.IGNORECASE)
+
+COMPETITION_PATTERN = re.compile(
+    r"^(region\d+)_(\d{4}-\d{2}-\d{2})-\d{2}-\d{2}_.*_(L1C|L2A)_([A-Z0-9]+)_\(Raw\)\.(tiff|tif)$", re.IGNORECASE)
+
+COMPETITION_PATTERN = re.compile(
+    r"^(region\d+)_(\d{4}-\d{2}-\d{2})-\d{2}-\d{2}_.*_(L1C|L2A)_([A-Z0-9]+)_\(Raw\)\.(tiff|tif)$", re.IGNORECASE)
+
+COMPETITION_PATTERN = re.compile(
+    r"^(region\d+)_(\d{4}-\d{2}-\d{2})-\d{2}-\d{2}_.*_(L1C|L2A)_([A-Z0-9]+)_\(Raw\)\.(tiff|tif)$", re.IGNORECASE)
+
+COMPETITION_PATTERN = re.compile(
+    r"^(region\d+)_(\d{4}-\d{2}-\d{2})-\d{2}-\d{2}_.*_(L1C|L2A)_([A-Z0-9]+)_\(Raw\)\.(tiff|tif)$", re.IGNORECASE)
+
+COMPETITION_PATTERN = re.compile(
+    r"^(region\d+)_(\d{4}-\d{2}-\d{2})-\d{2}-\d{2}_.*_(L1C|L2A)_([A-Z0-9]+)_\(Raw\)\.(tiff|tif)$", re.IGNORECASE)
+
+COMPETITION_PATTERN = re.compile(
+    r"^(region\d+)_(\d{4}-\d{2}-\d{2})-\d{2}-\d{2}_.*_(L1C|L2A)_([A-Z0-9]+)_\(Raw\)\.(tiff|tif)$", re.IGNORECASE)
+
+COMPETITION_PATTERN = re.compile(
+    r"^(region\d+)_(\d{4}-\d{2}-\d{2})-\d{2}-\d{2}_.*_(L1C|L2A)_([A-Z0-9]+)_\(Raw\)\.(tiff|tif)$", re.IGNORECASE)
+
+COMPETITION_PATTERN = re.compile(
+    r"^(region\d+)_(\d{4}-\d{2}-\d{2})-\d{2}-\d{2}_.*_(L1C|L2A)_([A-Z0-9]+)_\(Raw\)\.(tiff|tif)$", re.IGNORECASE)
+
+COMPETITION_PATTERN = re.compile(
+    r"^(region\d+)_(\d{4}-\d{2}-\d{2})-\d{2}-\d{2}_.*_(L1C|L2A)_([A-Z0-9]+)_\(Raw\)\.(tiff|tif)$", re.IGNORECASE)
+
 def scan_test_images():
-    rf = defaultdict(dict)
+    """自适应两种数据格式:
+    比赛格式 region17_2018-04-24-..._B01_(Raw).tiff → rf[rid][date][band] = 文件 (每波段一个文件)
+    平台格式 13_2018-10-04.tif 单文件12波段        → rf[rid][date] = 文件
+    """
+    rf_multi = defaultdict(lambda: defaultdict(dict))
+    rf_single = defaultdict(dict)
     sd = REGION_TEST_DIR if REGION_TEST_DIR.exists() else INPUT_DIR
     for f in sd.iterdir():
         if f.suffix.lower() not in ['.tiff','.tif']: continue
-        m = FILE_PATTERN.match(f.name)
-        if not m: continue
-        rid, ds = f"region{m.group(1)}", m.group(2)
-        rf[rid][ds] = str(f)
-    return dict(rf)
+        mc = COMPETITION_PATTERN.match(f.name)
+        if mc:
+            rid, ds, band = mc.group(1), mc.group(2), mc.group(4).upper()
+            if band in BANDS: rf_multi[rid][ds][band] = str(f)
+            continue
+        ms = FILE_PATTERN.match(f.name)
+        if ms:
+            rid, ds = f"region{ms.group(1)}", ms.group(2)
+            rf_single[rid][ds] = str(f)
+    if rf_multi:
+        return dict(rf_multi), 'multi'
+    if rf_single:
+        return dict(rf_single), 'single'
+    return {}, 'single'
 
 def build_region_bounds(rf):
     bm = {}
     for rid, dd in rf.items():
-        for fp in dd.values():
+        for val in dd.values():
+            fp = next(iter(val.values())) if isinstance(val, dict) else val
             try:
                 with rasterio.open(fp) as src: bm[rid] = src.bounds; break
             except: continue
     return bm
 
-def find_region(lon,lat,bm):
-    for rid,b in bm.items():
-        if b.left<=lon<=b.right and b.bottom<=lat<=b.top: return rid
+def find_region(lon, lat, bm, pid=None, rf=None):
+    # 平台格式: 文件名第一段即 point_id, 优先精确匹配
+    if pid is not None and rf is not None:
+        rid = f"region{pid}"
+        if rid in rf and rid in bm:
+            b = bm[rid]
+            if b.left <= lon <= b.right and b.bottom <= lat <= b.top: return rid
+    for rid, b in bm.items():
+        if b.left <= lon <= b.right and b.bottom <= lat <= b.top: return rid
     return None
 
 ANOMALY_MAP = {}
 def scan_anomalies(rf):
     am, ck = {}, set()
     for rid, dd in rf.items():
-        for ds, fp in dd.items():
+        for ds, val in dd.items():
             k = (rid, ds)
             if k in ck: continue
             ck.add(k)
             try:
-                with rasterio.open(fp) as src:
-                    if src.count < 8: continue
-                    h, w = src.height, src.width
-                    d = src.read(8, window=Window(max(0, w//2-50), max(0, h//2-50), 100, 100))
-                    v = d[d > 0]
-                    if v.size > 0 and float(np.mean(v)) > 2:
-                        am.setdefault(rid, {})[ds] = 255.0
-                        print(f"  [异常] {rid} {ds}: B08均值={float(np.mean(v)):.1f} → ÷255")
+                if isinstance(val, dict):
+                    fp = val.get('B08') or next(iter(val.values()))
+                    with rasterio.open(fp) as src:
+                        h, w = src.height, src.width
+                        d = src.read(1, window=Window(max(0, w//2-50), max(0, h//2-50), 100, 100))
+                else:
+                    with rasterio.open(val) as src:
+                        if src.count < 8: continue
+                        h, w = src.height, src.width
+                        d = src.read(8, window=Window(max(0, w//2-50), max(0, h//2-50), 100, 100))
+                v = d[d > 0]
+                if v.size > 0 and float(np.mean(v)) > 2:
+                    am.setdefault(rid, {})[ds] = 255.0
+                    print(f"  [异常] {rid} {ds}: B08均值={float(np.mean(v)):.1f} → ÷255")
             except: continue
     return am
+
 
 BAND_TO_IDX = {b: i+1 for i, b in enumerate(BANDS)}
 
@@ -154,33 +242,51 @@ def extract_dualsource(lon, lat, rid, rf, td=None):
     if rid is None or rid not in rf: return None, None, None
     s3, s1, dl = [], [], []
     for ds in sorted(rf[rid].keys()):
-        fp = rf[rid][ds]
+        val = rf[rid][ds]
         nd = ANOMALY_MAP.get(rid, {}).get(ds)
         bv3, bv1, ok = [], [], True
         try:
-            with rasterio.open(fp) as src:
-                if src.count < len(BANDS): continue
-                py, px = src.index(lon, lat)
+            if isinstance(val, dict):
+                # 比赛格式: 每波段一个文件
                 for b in BANDS:
-                    bi = BAND_TO_IDX[b]
-                    # 1x1 单点
-                    r = list(src.sample([(lon, lat)], indexes=bi))
-                    if not r: ok = False; break
-                    v1 = float(r[0][0])
-                    if (src.nodata is not None and v1 == src.nodata) or v1 <= 0: ok = False; break
-                    # 3x3 窗口均值
-                    d = src.read(bi, window=Window(px-1, py-1, 3, 3), boundless=True, fill_value=0)
-                    vd = d[(d != src.nodata) & (d > 0)] if src.nodata is not None else d[d > 0]
-                    if vd.size == 0: ok = False; break
-                    v3 = float(np.mean(vd))
-                    if nd is not None: v1 /= nd; v3 /= nd
-                    bv1.append(v1); bv3.append(v3)
+                    fp = val.get(b)
+                    if fp is None: ok = False; break
+                    with rasterio.open(fp) as src:
+                        py, px = src.index(lon, lat)
+                        r = list(src.sample([(lon, lat)]))
+                        if not r: ok = False; break
+                        v1 = float(r[0][0])
+                        if (src.nodata is not None and v1 == src.nodata) or v1 <= 0: ok = False; break
+                        d = src.read(1, window=Window(px-1, py-1, 3, 3), boundless=True, fill_value=0)
+                        vd = d[(d != src.nodata) & (d > 0)] if src.nodata is not None else d[d > 0]
+                        if vd.size == 0: ok = False; break
+                        v3 = float(np.mean(vd))
+                        if nd is not None: v1 /= nd; v3 /= nd
+                        bv1.append(v1); bv3.append(v3)
+            else:
+                # 平台格式: 单文件12波段
+                with rasterio.open(val) as src:
+                    if src.count < len(BANDS):
+                        ok = False
+                    else:
+                        py, px = src.index(lon, lat)
+                        for bi in range(1, len(BANDS)+1):
+                            r = list(src.sample([(lon, lat)], indexes=bi))
+                            if not r: ok = False; break
+                            v1 = float(r[0][0])
+                            if (src.nodata is not None and v1 == src.nodata) or v1 <= 0: ok = False; break
+                            d = src.read(bi, window=Window(px-1, py-1, 3, 3), boundless=True, fill_value=0)
+                            vd = d[(d != src.nodata) & (d > 0)] if src.nodata is not None else d[d > 0]
+                            if vd.size == 0: ok = False; break
+                            v3 = float(np.mean(vd))
+                            if nd is not None: v1 /= nd; v3 /= nd
+                            bv1.append(v1); bv3.append(v3)
         except: continue
         if not ok or len(bv3) != len(BANDS): continue
         if bv3[3] == 0 and bv3[7] == 0 and bv3[1] == 0: continue
         i3, i1 = calc_indices(bv3), calc_indices(bv1)
         s3.append(bv3+i3); s1.append(bv1+i1); dl.append(date_to_doy(ds))
-    if len(s3) < 2: return None, None, None
+    if len(s3) < 1: return None, None, None
     od = np.array(dl); f3 = np.array(s3, dtype=np.float32); f1 = np.array(s1, dtype=np.float32)
     if td is not None and td not in od:
         if td < od[0]: i3, i1, fp = f3[0].copy(), f1[0].copy(), 0
@@ -199,7 +305,7 @@ def extract_point(args):
     if rid is None or rid not in rf:
         return None,{'pid':pid,'lon':lon,'lat':lat,'lon_raw':lr,'lat_raw':la,'obs_date':obs_date,'obs_doy':obs_doy,'reason':'no_region'}
     s3,s1,d = extract_dualsource(lon,lat,rid,rf,obs_doy)
-    if s3 is None or len(s3)<2:
+    if s3 is None or len(s3)<1:
         return None,{'pid':pid,'lon':lon,'lat':lat,'lon_raw':lr,'lat_raw':la,'obs_date':obs_date,'obs_doy':obs_doy,
                      'reason':f'too_short({0 if s3 is None else len(s3)})'}
     return {'pid':pid,'lon_raw':lr,'lat_raw':la,'obs_date':obs_date,'obs_doy':obs_doy,
@@ -216,8 +322,8 @@ def main():
     if not test_csv.exists(): test_csv = INPUT_DIR / "points_test.csv"
     df = pd.read_csv(test_csv); print(f"测试点: {len(df)}")
 
-    print("\n扫描影像..."); rf = scan_test_images()
-    print(f" {len(rf)} region"); bm = build_region_bounds(rf); print(" bounds OK")
+    print("\n扫描影像..."); rf, dmode = scan_test_images()
+    print(f" {len(rf)} region (格式: {dmode})"); bm = build_region_bounds(rf); print(" bounds OK")
     global ANOMALY_MAP; ANOMALY_MAP = scan_anomalies(rf)
 
     print("\n提取数据...")
@@ -227,7 +333,7 @@ def main():
         od,lonr,latr = str(r['phenophase_date']),r['Longitude'],r['Latitude']
         try: doy = parse_obs_date(od)
         except: nd.append({'pid':pid,'lon':lon,'lat':lat,'lon_raw':lonr,'lat_raw':latr,'obs_date':od,'obs_doy':180,'reason':'parse'}); continue
-        rid = find_region(lon,lat,bm)
+        rid = find_region(lon,lat,bm,pid=pid,rf=rf)
         al.append((pid,lon,lat,lonr,latr,od,doy,rid,rf))
     nw = min(cpu_count(),8)
     sp,nd2 = [],[]
